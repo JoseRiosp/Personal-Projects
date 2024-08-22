@@ -1,0 +1,83 @@
+
+html{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: aliceblue;
+}
+
+body {
+    width: 100vh;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#weather-app{
+    display: flex;
+    flex-direction: column;
+    width: 100vh;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin:0;
+}
+
+h1{
+    color: rgba(4, 4, 161, 0.82);
+    margin-bottom: 0;
+}
+
+img{
+    padding: 1rem;
+    transform: translateX(9rem) translateY(-21rem);
+    border-radius: 3rem;
+    width: 7.5rem;
+    height: 7rem;
+}
+
+#next-days{
+    cursor: pointer;
+    background-color: rgb(128, 171, 227);
+    
+}
+
+#description {
+color: gray;
+font-size: 9pt;
+}
+
+#text-input{
+    height: 2rem;
+    width: 15rem;
+    font-size:12pt;
+    
+    outline: none;
+    color:cornflowerblue;
+}
+
+#output{
+    background-color: rgba(82, 109, 177, 0.451);
+    margin-top: 0rem;
+    padding:1rem;
+    height: auto;
+    width: 20rem;
+    font-size: 11pt;
+    border-radius: 9px;
+    color:rgb(12, 20, 121);
+ 
+   
+    
+}
+
+#input-btn {
+    width: 7rem;
+    height: 36px;
+    background-color: rgb(12, 123, 112);
+    color: aliceblue;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 10pt;
+}
