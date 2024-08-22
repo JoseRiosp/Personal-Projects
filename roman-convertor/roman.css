@@ -1,0 +1,42 @@
+
+html{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#roman-converter {
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(73, 73, 138);
+}
+
+h1{
+    color: aliceblue;
+}
+
+#number {
+    height: 2rem;
+    width: 15rem;
+    font-size:15pt;
+}
+
+#convert-btn {
+    width: 5rem;
+    height: 2rem;
+    background-color: brown;
+    color: aliceblue;
+}
+
+#output {
+background-color: aliceblue;
+   height: 5rem;
+   width: 20rem;
+   margin-top: 2rem;
+   font-size: 15pt;
+   text-align: center;
+   padding: 1rem;
+   color:red;
+
+}

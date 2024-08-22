@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="roleplay.css">
+    <title>RPG - Dragon Repeller</title>
+  </head>
+  <body>
+    <div id="welcome"">
+      <h1>Dragon Hunter</h1>
+      <h3>The Role Play Game</h3>
+    <div id="game">
+      </div>
+        <div id="text">
+            <p>You are a hunter. You must defeat the dragon that is terrorizing the town.</p>
+            <p>You are in the town square.</p>
+            <p>Where do you want to go?</p> 
+            <p>Let's play:</p>
+          </div>
+      <div id="stats">
+        <span class="stat">XP: <strong><span id="xpText">0</span></strong></span>
+        <span class="stat">Health: <strong><span id="healthText">100</span></strong></span>
+        <span class="stat">Gold: <strong><span id="goldText">50</span></strong></span>
+      </div>
+      <div id="controls">
+        <button id="button1">Go to store</button>
+        <button id="button2">Go to cave</button>
+        <button id="button4">Inventory <p class="tooltip"> Click to check your inventory
+      </p></button>
+        <button id="button3">Fight dragon</button>
+      </div>
+      <div id="monsterStats">
+        <span class="stat">Monster Name: <strong><span id="monsterName"></span></strong></span>
+        <span class="stat">Health: <strong><span id="monsterHealth"></span></strong></span>
+      </div>
+    </div>
+    <script src="indexRP.js"></script>
+  </body>
+</html>
