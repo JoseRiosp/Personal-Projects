@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
 import { levels } from "../../models/levels.enum";
+import "./../../styles/task.scss";
 
 //Importamos la hoja de estilos
 //import '../../styles/task.scss'
 
-const TaskComponent = ({ task }) => {
+const TaskComponent = ({ task, manageTask }) => {
   useEffect(() => {
     console.log("Created Task");
     return () => {
@@ -43,15 +44,15 @@ const TaskComponent = ({ task }) => {
   function taskIconCompleted() {
     if (task.completed) {
       return (
-        <i
-          className="bi-toggle-on"
+        <i onClick={()=>manageTask(task, "complete")}
+          className="bi-toggle-on task-action"
           style={{ color: "green", fontWeight: "bold" }}
         ></i>
       );
     } else {
       return (
-        <i
-          className="bi-toggle-off"
+        <i onClick={()=>manageTask(task, "complete")}
+          className="bi-toggle-off task-action"
           style={{ color: "grey", fontWeight: "bold" }}
         ></i>
       );
@@ -68,7 +69,7 @@ const TaskComponent = ({ task }) => {
       </td>
       <td className="align-middle">{taskLevelBadge()}</td>
       <td className="align-middle">{taskIconCompleted()}
-        <i className="bi-trash" style={{ color: "tomato" }}></i>
+        <i className="bi-trash task-action" style={{ color: "tomato" }} onClick={()=>{manageTask(task, "remove")}}></i>
         </td>
     </tr>
     /*<div>
@@ -89,7 +90,8 @@ const TaskComponent = ({ task }) => {
 };
 
 TaskComponent.propTypes = {
-  task: PropTypes.instanceOf(Task),
+  task: PropTypes.instanceOf(Task).isRequired,
+  manageTask: PropTypes.func.isRequired
 };
 
 export default TaskComponent;
