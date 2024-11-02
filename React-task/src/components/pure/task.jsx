@@ -35,7 +35,6 @@ const TaskComponent = ({ task, manageTask }) => {
             <span className="badge bg-danger">{task.level}</span>
           </h6>
         );
-
       default:
         break;
     }
@@ -62,30 +61,16 @@ const TaskComponent = ({ task, manageTask }) => {
   return (
     <tr className="fw-normal">
       <th>
-        <span className="ms-2">{task.name}</span>
+        <span style={{fontSize: "12pt", lineHeight:"1.2"}}>{task.name}</span>
       </th>
-      <td className="align-middle">
-        <span>{task.description}</span>
+      <td className="align-middle" style={{textAlign: "left", padding: "5px", margin:"0px", lineHeight:"1.2" }}>
+        <span style={{fontSize: "11pt"}}>{task.description}</span>
       </td>
-      <td className="align-middle">{taskLevelBadge()}</td>
+      <td className="align-middle" style={{padding: "12px"}}>{taskLevelBadge()}</td>
       <td className="align-middle">{taskIconCompleted()}
         <i className="bi-trash task-action" style={{ color: "tomato" }} onClick={()=>{manageTask(task, "remove")}}></i>
         </td>
     </tr>
-    /*<div>
-      <h2 className="task-name">
-        Nombre: {task.name}
-      </h2>
-      <h3>
-        Descripción: {task.description}
-      </h3>
-      <h4>
-        Nivel: {task.level}
-      </h4>
-      <h5>
-        Esta tarea está: {task.completed ?'COMPLETADA':'PENDIENTE'}
-      </h5>
-    </div>*/
   );
 };
 

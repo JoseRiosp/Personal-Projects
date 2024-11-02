@@ -1,3 +1,32 @@
 .task-action{
     cursor: pointer;
 }
+
+form {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    position: fixed;
+    transform: translate(5%, 50%);
+    background-color: rgb(203, 231, 210);
+    z-index: 2;
+    border-radius: 2rem;
+    font-size: 12pt;
+    gap: 1rem;
+    color:black;
+    animation: fadeIn 0.3s ease
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+input {
+height: 2rem;
+margin-top: 6px;
+margin-bottom: 6px;
+}

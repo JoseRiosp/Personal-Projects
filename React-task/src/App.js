@@ -1,6 +1,4 @@
 //import logo from './logo.svg';
-
-
 import './App.css';
 
 //import Father from './components/container/father';

@@ -21,9 +21,9 @@ const TaskForm = ({manageTask}) => {
   }
 
   return (
-    <div>
-      <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
-        <div className='form-outline flex-fill'>
+    <div id="add-task-form" hidden>
+      <form onSubmit={addTask}>
+        <div id="inputs-div">
           <input ref={refName} id="input-name" type="text" className='form-control' required autoFocus placeholder='Name of your task'></input>
           <input ref={refDescription} id="input-description" type="text" className='form-control form-control-lg' required placeholder='Description'></input>
           <label htmlFor='select-level' className='sr-only'>Priority</label>
@@ -39,7 +39,7 @@ const TaskForm = ({manageTask}) => {
             </option>
           </select>
         </div>
-        <button type='submit' className='btn btn-success btn-lg ms-2'>Add Task</button>
+        <button type='submit' className='btn btn-outline-success'>Add Task</button>
       </form>
     </div>
   )

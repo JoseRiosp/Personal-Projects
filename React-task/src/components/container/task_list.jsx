@@ -5,16 +5,19 @@ import TaskComponent from '../pure/task'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import TaskForm from '../pure/forms/taskForm'
+import { sendLocalStorage } from '../../models/localstorage'
+import getLocalStorage from '../../models/localstorage'
 
 const TaskListComponent = () => {
-
+    //Tomar los datos del local storage
+    const taskListData= getLocalStorage()
+    console.log(taskListData);
+    /*
     const defaultTask = new Task('Example', 'Default description', true, levels.NORMAL);
     const defaultTask2 = new Task('Example2', 'Description 2', false, levels.URGENTE);
-    const defaultTask3 = new Task('Example3', 'Description 3', false, levels.BLOCKING);
-
-
+    const defaultTask3 = new Task('Example3', 'Description 3', false, levels.BLOCKING);*/
     //Estado del componente
-    const [tasks, setTasks] = useState([defaultTask, defaultTask2, defaultTask3]);
+    const [tasks, setTasks] = useState(taskListData);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -44,8 +47,9 @@ const TaskListComponent = () => {
           tempTask.push(task);
           setTasks(tempTask);
           break;
-        default: 
-      }}
+        default:
+      }
+      sendLocalStorage(tempTask)}
       /*
       if(option="complete"){
       tempTask[index].completed=!tempTask[index].completed;
@@ -92,12 +96,21 @@ const TaskListComponent = () => {
       setTasks(tempTask)
     }*/
     
+      function showAddTask(){
+        const greenBtn = document.getElementById("add-task-form");
+        greenBtn.toggleAttribute("hidden");
+      }
+
+      
     return (
     <div>
       <div className="col-12">
+      <TaskForm manageTask={managingTask}></TaskForm>
         <div className='card'>
-            <div className='card-header p-3'>
+            <div className='card-header p-3' style={{ display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center", gap:"8rem"}}>
+            <i className='bi bi-archive-fill'></i>
             <h5>Your tasks</h5>
+            <button className='btn btn-success bi-file-plus' onClick={showAddTask} style={{borderRadius:"3rem"}}></button>
             </div>
         <div className='card-body' data-mdb-perfect-scrollbar="true" style={ {position: "relative", height: "400px"}}>
         <table>
@@ -115,17 +128,17 @@ const TaskListComponent = () => {
                         <TaskComponent 
                             key={index} 
                             task={task}
-                            manageTask={managingTask}
-                            >
+                            manageTask={managingTask}>
                             </TaskComponent>
+                            
                     )
                 })}
+                
             </tbody>
         </table>
         </div>
         </div>
       </div>
-      <TaskForm manageTask={managingTask}></TaskForm>
     </div>
   )
 }
