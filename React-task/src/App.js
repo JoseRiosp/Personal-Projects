@@ -3,6 +3,7 @@ import './App.css';
 
 //import Father from './components/container/father';
 import TaskListComponent from './components/container/task_list';
+import OptionalRender from './components/pure/optionalRender';
 //import GreetingStyled from './components/pure/greetingStyled';
 //import GreetFun from  "./components/pure/greetFun.jsx";
 
@@ -17,6 +18,7 @@ function App() {
        {/*<GreetingStyled name="José"></GreetingStyled>*/}
        {/* <Father></Father>*/}
        <TaskListComponent></TaskListComponent>
+       {/*<OptionalRender></OptionalRender>*/}
       </header>
     </div>
   );

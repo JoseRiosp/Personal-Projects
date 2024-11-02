@@ -30,3 +30,14 @@ height: 2rem;
 margin-top: 6px;
 margin-bottom: 6px;
 }
+
+
+.task-completed {
+    color: grey;
+    text-decoration: line-through;
+}
+
+.task-pending {
+    font-weight: bold;
+    color: tomato;
+}

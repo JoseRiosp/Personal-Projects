@@ -101,6 +101,41 @@ const TaskListComponent = () => {
         greenBtn.toggleAttribute("hidden");
       }
 
+      const taskTable= ()=>{
+        const table = <table>
+        <thead>
+        <tr>
+            <th scope='col'>Title</th>
+            <th scope='col'>Description</th>
+            <th scope='col'>Priority</th>
+            <th scope='col'>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {tasks.map((task, index)=>{
+                return (
+                    <TaskComponent 
+                        key={index} 
+                        task={task}
+                        manageTask={managingTask}>
+                        </TaskComponent>
+                        
+                )
+            })}
+            
+        </tbody>
+    </table>
+
+    if(tasks.length > 0){
+      return table;
+          } else {
+            return <div>
+              <h3>There are no task to show</h3>
+              <h5>Please, create a new one: </h5>
+            </div>
+}
+
+      }
       
     return (
     <div>
@@ -113,29 +148,7 @@ const TaskListComponent = () => {
             <button className='btn btn-success bi-file-plus' onClick={showAddTask} style={{borderRadius:"3rem"}}></button>
             </div>
         <div className='card-body' data-mdb-perfect-scrollbar="true" style={ {position: "relative", height: "400px"}}>
-        <table>
-            <thead>
-            <tr>
-                <th scope='col'>Title</th>
-                <th scope='col'>Description</th>
-                <th scope='col'>Priority</th>
-                <th scope='col'>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-                {tasks.map((task, index)=>{
-                    return (
-                        <TaskComponent 
-                            key={index} 
-                            task={task}
-                            manageTask={managingTask}>
-                            </TaskComponent>
-                            
-                    )
-                })}
-                
-            </tbody>
-        </table>
+          {taskTable()}
         </div>
         </div>
       </div>

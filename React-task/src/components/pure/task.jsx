@@ -59,7 +59,7 @@ const TaskComponent = ({ task, manageTask }) => {
   }
 
   return (
-    <tr className="fw-normal">
+    <tr className="fw-normal" className={task.completed ? "task-completed" : "task-pending" }>
       <th>
         <span style={{fontSize: "12pt", lineHeight:"1.2"}}>{task.name}</span>
       </th>
