@@ -2,12 +2,12 @@
     cursor: pointer;
 }
 
-form {
+#task-form {
     display: flex;
     align-items: center;
     padding: 2rem;
     position: fixed;
-    transform: translate(5%, 50%);
+    transform: translate(-7%, 50%);
     background-color: rgb(203, 231, 210);
     z-index: 2;
     border-radius: 2rem;
@@ -31,13 +31,3 @@ margin-top: 6px;
 margin-bottom: 6px;
 }
 
-
-.task-completed {
-    color: grey;
-    text-decoration: line-through;
-}
-
-.task-pending {
-    font-weight: bold;
-    color: tomato;
-}

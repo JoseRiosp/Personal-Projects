@@ -11,7 +11,6 @@ import getLocalStorage from '../../models/localstorage'
 const TaskListComponent = () => {
     //Tomar los datos del local storage
     const taskListData= getLocalStorage()
-    console.log(taskListData);
     /*
     const defaultTask = new Task('Example', 'Default description', true, levels.NORMAL);
     const defaultTask2 = new Task('Example2', 'Description 2', false, levels.URGENTE);
@@ -20,9 +19,19 @@ const TaskListComponent = () => {
     const [tasks, setTasks] = useState(taskListData);
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
       console.log("Task state is been modified");
-      setLoading(false);
+        let time;
+        if(tasks.length<5){
+          time=1000;
+        } else {
+          time=2000;
+        }
+      
+      setTimeout(() => {
+        setLoading(false)
+      }, time);
       return () => {
         console.log("TaskList component is going to unmount...")
       }
@@ -34,7 +43,7 @@ const TaskListComponent = () => {
       const tempTask=[...tasks];
 
       switch (option) {
-        case "complete":
+        case "complete" :
           tempTask[index].completed=!tempTask[index].completed;
           setTasks(tempTask);
           break;
@@ -112,11 +121,11 @@ const TaskListComponent = () => {
         </tr>
         </thead>
         <tbody>
-            {tasks.map((task, index)=>{
+            {tasks.map((currentTask, index)=>{
                 return (
                     <TaskComponent 
                         key={index} 
-                        task={task}
+                        task={currentTask}
                         manageTask={managingTask}>
                         </TaskComponent>
                         
@@ -130,17 +139,21 @@ const TaskListComponent = () => {
       return table;
           } else {
             return <div>
-              <h3>There are no task to show</h3>
-              <h5>Please, create a new one: </h5>
+              <h3>There are no tasks to show</h3>
+              <h6>Click <i className='bi bi-file-plus' style={{color: 'green'}}></i> to create a new one: </h6>
             </div>
 }
-
       }
-      
+      const loadingStyle={
+        //Lets put some animaition (spinner) for the loading page
+        color: 'grey',
+        fontSize: '20px',
+        fontWeight: 'bold'
+      }
     return (
     <div>
       <div className="col-12">
-      <TaskForm manageTask={managingTask}></TaskForm>
+      <TaskForm manageTask={managingTask} nTasks={tasks.length}></TaskForm>
         <div className='card'>
             <div className='card-header p-3' style={{ display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center", gap:"8rem"}}>
             <i className='bi bi-archive-fill'></i>
@@ -148,7 +161,7 @@ const TaskListComponent = () => {
             <button className='btn btn-success bi-file-plus' onClick={showAddTask} style={{borderRadius:"3rem"}}></button>
             </div>
         <div className='card-body' data-mdb-perfect-scrollbar="true" style={ {position: "relative", height: "400px"}}>
-          {taskTable()}
+          {loading ? (<p style={loadingStyle}>Loading tasks...</p>) : taskTable()}
         </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Task } from "../../models/task.class";
 import { levels } from "../../models/levels.enum";
 import "./../../styles/task.scss";
+import getLocalStorage from '../../models/localstorage'
 
 //Importamos la hoja de estilos
 //import '../../styles/task.scss'
@@ -58,8 +59,19 @@ const TaskComponent = ({ task, manageTask }) => {
     }
   }
 
+  const taskCompleted ={
+    color: "grey",
+    textDecoration: "line-through",
+    fontWeight: "bold"
+  }
+
+  const taskPending ={
+    color: "tomato",
+    fontWeight: "bold"
+  }
+
   return (
-    <tr className="fw-normal" className={task.completed ? "task-completed" : "task-pending" }>
+    <tr className="fw-normal" style={task.completed ? taskCompleted : taskPending}>
       <th>
         <span style={{fontSize: "12pt", lineHeight:"1.2"}}>{task.name}</span>
       </th>
@@ -75,7 +87,7 @@ const TaskComponent = ({ task, manageTask }) => {
 };
 
 TaskComponent.propTypes = {
-  task: PropTypes.instanceOf(Task).isRequired,
+  task: PropTypes.object.isRequired, // If i change the provider of the data, this (object) also needs to be changed
   manageTask: PropTypes.func.isRequired
 };
 

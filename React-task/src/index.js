@@ -1,21 +1,21 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
 //Añadimos bootstrap, arriba de css para que no lo pise
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 //Importante: Los estilos propios deben it debajo del boostrap
-
 import './index.css';
-import App from './App';
+import './App.css';
+//import App from './App';
 
 import reportWebVitals from './reportWebVitals';
+import AppRoutingOne from './AppRoutingOne';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AppRoutingOne/>
   </React.StrictMode>
 );
 

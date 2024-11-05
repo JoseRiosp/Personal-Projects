@@ -1,11 +1,13 @@
 import React from 'react'
+import NavButtons from '../../hooks/navButtons'
 
-function notFoundPage() {
+function NotFoundPage() {
   return (
     <div>
       <h1>404 - Page Not Found</h1>
+      <NavButtons></NavButtons>
     </div>
   )
 }
 
-export default notFoundPage
+export default NotFoundPage
