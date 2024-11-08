@@ -23,7 +23,7 @@ const LoginFormik = () => {
     await new Promise((r) => setTimeout(r, 800));
     alert(JSON.stringify(values, null, 2));
     localStorage.setItem("credentials", values);
-    navigate('/profile');
+    navigate('/');
   }
 
   return (

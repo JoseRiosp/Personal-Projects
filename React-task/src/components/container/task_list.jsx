@@ -6,11 +6,12 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import TaskForm from '../pure/forms/taskForm'
 import { sendLocalStorage } from '../../models/localstorage'
-import getLocalStorage from '../../models/localstorage'
+import {getLocalStorage} from '../../models/localstorage'
 
 const TaskListComponent = () => {
     //Tomar los datos del local storage
-    const taskListData= getLocalStorage()
+    const taskListData=getLocalStorage()
+    console.log(taskListData)
     /*
     const defaultTask = new Task('Example', 'Default description', true, levels.NORMAL);
     const defaultTask2 = new Task('Example2', 'Description 2', false, levels.URGENTE);

@@ -1,5 +1,5 @@
 
-export default function getLocalStorage(){
+export function getLocalStorage(){
     const taskListData = JSON.parse(localStorage.getItem("taskdata")) || [];
     return taskListData;
 }

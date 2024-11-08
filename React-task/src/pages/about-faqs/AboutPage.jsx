@@ -8,6 +8,7 @@ const AboutPage=()=> {
   return (
     <div>
       <NavButtons></NavButtons>
+      <h1>About Page</h1>
     </div>
   )
 }

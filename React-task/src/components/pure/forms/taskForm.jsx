@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { levels } from "../../../models/levels.enum";
 import { Task } from "../../../models/task.class";
+import { Snackbar, Button } from "@mui/material";
 
 const TaskForm = ({ manageTask, nTasks }) => {
   const refName = useRef("");
@@ -67,9 +68,10 @@ const TaskForm = ({ manageTask, nTasks }) => {
             <option value={levels.BLOCKING}>Blocking</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-outline-success">
+        <Button type="submit" className="btn btn-outline-success">
           {nTasks > 0 ? "Add New Task" : "Create Your First Task"}
-        </button>
+        </Button>
+        <Snackbar autoHideDuration={2000} message='New task created!' anchorOrigin={{vertical: 'bottom', horizontal:'center'}}/>
       </form>
     </div>
   );

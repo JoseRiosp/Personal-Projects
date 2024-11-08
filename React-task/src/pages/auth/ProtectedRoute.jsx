@@ -1,22 +1,24 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from "prop-types";
 
 const ProtectedRoute = ({Component, defaultRoute}) => {
     let logged=false;
     const navigate=useNavigate();
+    const location=useLocation();
     logged= localStorage.getItem('credentials');
 
     useEffect(() => {
         console.log('Looking for credentials...')
             if(!logged){
                 console.log('No credentials found')
+                console.log('showing route:', location.pathname)
                 navigate(defaultRoute)} else {
                     console.log('Credential found')
                 }
-    }, [logged,defaultRoute, navigate])
+    }, [logged,defaultRoute, navigate, location])
     
-    return (logged ? <Component/> : <p>You have no access to this page</p> )
+    return (logged ? <Component/> : <p>Something went wrong</p> )
     
   
 }

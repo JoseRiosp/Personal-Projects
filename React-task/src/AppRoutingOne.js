@@ -1,13 +1,14 @@
 import{ BrowserRouter as Router, Route, Link, Routes, Navigate, useNavigate} from 'react-router-dom';
 import HomePage from './pages/home/homePage';
 import NotFoundPage from './pages/404/notFoundPage';
-import React, { useEffect } from 'react'
 import AboutPage from './pages/about-faqs/AboutPage';
 import ProfilePage from './pages/profile/ProfilePage';
 import TasksPage from './pages/tasks/tasksPage';
 import TaskDetailPage from './pages/tasks/TaskDetailPage';
 import ProtectedRoute from './pages/auth/ProtectedRoute';
 import LoginPage from './pages/auth/loginPage';
+import StatePage from './pages/home/StatePage';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function AppRoutingOne() {
   return (
@@ -21,8 +22,9 @@ function AppRoutingOne() {
           </aside>
         </div>
         <Routes>
-          <Route path='/' element={<HomePage/>}></Route>
-          <Route path='/login' element={<LoginPage/>}></Route>
+          <Route path={'/'} element={<ProtectedRoute Component={Dashboard} defaultRoute='/login'/>}></Route>
+          <Route path={'/login'} element={<LoginPage/>}></Route>
+          <Route path='/online-state' element={<StatePage/>}></Route>
           <Route path='/faqs' element={<AboutPage/>}></Route>
           <Route path='/about' element={<AboutPage/>}></Route>
           <Route path='/profile' element={<ProtectedRoute Component={ProfilePage} defaultRoute='/login'/>}>

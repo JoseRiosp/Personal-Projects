@@ -1,5 +1,8 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { ButtonGroup, Button } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 export const NavButtons=()=> {
@@ -18,15 +21,13 @@ export const NavButtons=()=> {
   return (
     <div>
       <div>
-        <button onClick={()=>{navigate('/')}}>
-            Go to Home Page
-        </button>
-        <button onClick={goBack}>
-            Go Back
-        </button>
-        <button onClick={goFoward}>
-            Go Foward
-        </button>
+      <ButtonGroup variant="outlined" aria-label="Basic button group">
+        <Button onClick={goBack}><ArrowBackIcon/></Button>
+        <Button onClick={()=>{navigate('/')}}>
+          Go to Home Page
+        </Button>
+        <Button onClick={goFoward}><ArrowForwardIcon/></Button>
+</ButtonGroup>
       </div>
     </div>
   )
