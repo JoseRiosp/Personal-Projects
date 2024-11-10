@@ -6,7 +6,7 @@ const ProtectedRoute = ({Component, defaultRoute}) => {
     let logged=false;
     const navigate=useNavigate();
     const location=useLocation();
-    logged= localStorage.getItem('credentials');
+    logged= sessionStorage.getItem('token');
 
     useEffect(() => {
         console.log('Looking for credentials...')

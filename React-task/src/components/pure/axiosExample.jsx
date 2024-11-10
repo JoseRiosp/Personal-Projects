@@ -34,7 +34,7 @@ const AxiosExample = () => {
             <p>{user.age}</p>
             <p>{user.email}</p>
             <p>{user.cell}</p>
-            <Button onClick={()=>{getNewUser()}}>Create new use</Button>
+            <Button onClick={()=>{getNewUser()}}>Create new user</Button>
             </div>
         : <p>Create a new user...</p>}
     </div>

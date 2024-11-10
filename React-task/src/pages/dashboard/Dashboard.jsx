@@ -4,15 +4,13 @@ import Copyright from '../../components/pure/Copyright';
 import { useNavigate } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 import NavButtons from '../../hooks/navButtons';
-import UsersExample from '../../components/pure/usersExample';
-import AxiosExample from '../../components/pure/axiosExample';
 //import MenuItems from '../../components/pure/MenuItems';
 
 const Dashboard = () => {
     const navigate = useNavigate();
     const logOut= ()=>{
         console.log('login out...')
-        localStorage.removeItem('credentials');
+        sessionStorage.removeItem('token');
         navigate('/login');
 }
     const [loading, setLoading] = useState(true);
@@ -27,7 +25,6 @@ const showDashboard=()=>{
  <NavButtons></NavButtons>
  <Button variant="contained" onClick={()=>{navigate('/profile')}}>Go to Profile</Button>
  <Button variant="outlined" color='error' onClick={()=>{logOut()}}>Logout</Button>
- <AxiosExample></AxiosExample>
  {/*<MenuItems></MenuItems>*/}
  <Copyright></Copyright>
 </div>
